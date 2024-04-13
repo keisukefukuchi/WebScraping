@@ -2,4 +2,5 @@
 
 WebScraping with Laravel
 
-https://pubmed.ncbi.nlm.nih.gov/このサイトから情報を抜き出すことができる
+以下のサイトから検索をかけたキーワードをもとに情報を抜き出すことができる
+https://pubmed.ncbi.nlm.nih.gov/
