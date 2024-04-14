@@ -28,13 +28,21 @@ class Scrape extends Command
      */
     public function handle()
     {
-        $url = 'https://tenshoku.mynavi.jp/list/pg3';
+        $url = 'https://tabelog.com/rstLst/';
         $response = Http::get($url);
 
         $html = $response->getBody()->getContents();
         $crawler = new Crawler($html);
-        $crawler->filter('.cassetteRecruit__copy > a')->each(function (Crawler $node) {
-            dump($node->attr('href'));
+
+        $store_info = [];
+
+        $crawler->filter('.list-rst__rst-name-target')->each(function (Crawler $node) use (&$store_info) {
+            $store_name = $node->text();
+            $store_link = $node->attr('href');
+
+            $store_info[] = ['name' => $store_name, 'link' => $store_link];
         });
+
+        var_dump($store_info);
     }
 }

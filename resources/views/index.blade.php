@@ -5,34 +5,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PubMed Search</title>
+    <title>飲食店舗 スクレイピング</title>
 </head>
 <body>
-    <h1>PubMed Search</h1>
-
-    <form action="/" method="get">
-        <label for="keywords">Keywords:</label>
-        <input type="text" name="keywords" id="keywords" value="{{ $keywords }}">
-
-        <button type="submit">Search</button>
-    </form>
-
-    @if($paginatedArticles->isEmpty())
-        <p>No articles found.</p>
-    @else
-        <ul>
-            @foreach ($paginatedArticles as $article)
-                <li>
-                    <h2>{{ $article['title'] }}</h2>
-                    <p>Authors: {{ $article['authors'] }}</p>
-                    <p>PMID: {{ $article['pmid'] }}</p>
-                    <p>Journal Citation: {{ $article['journalCitation'] }}</p>
-                    <p>Snippet: {{ $article['snippet'] }}</p>
-                </li>
-            @endforeach
-        </ul>
-
-        {{ $paginatedArticles->links() }} <!-- Pagination links -->
-    @endif
+    <h1>飲食店舗 スクレイピング</h1>
+    <table>
+        <tr>
+            <th>店舗名</th>
+            <th>店舗URL</th>
+        </tr>
+        @foreach ($store_infos as $store_info)
+            <tr>
+                <td>{{$store_info['name']}}</td>
+                <td>
+                    <a href="{{$store_info['link']}}">{{$store_info['link']}}</a>
+                </td>
+            </tr>
+        @endforeach
+    </table>
 </body>
 </html>
