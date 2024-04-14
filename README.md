@@ -2,5 +2,5 @@
 
 WebScraping with Laravel
 
-以下のサイトから検索をかけたキーワードをもとに情報を抜き出すことができる
-https://pubmed.ncbi.nlm.nih.gov/
+以下のサイトから店舗名、店舗リンクをスクレイピングするようにしている
+https://tabelog.com/rstLst/
