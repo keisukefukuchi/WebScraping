@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WebScrapingController::class, 'scrape']);
+Route::get('/search', [WebScrapingController::class, 'search']);
